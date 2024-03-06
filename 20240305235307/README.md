@@ -18,33 +18,33 @@ support this library.
 
 The scan function initiates the scanner:
 
-* Defines how to use the Barcode Detection
-* Initializes a `BarcodeDetector` object
+- Defines how to use the Barcode Detection
+- Initializes a `BarcodeDetector` object
 
 Then creates a modal to open the camera:
 
-* Necessary HTML code to create the modal where the camera will be
+- Necessary HTML code to create the modal where the camera will be
 shown
 
 Actually open the camera:
 
-* Using the asynchronous method `openCamera` which returns a Promise
-* First it'll open the device's camera
-* It'll go frame by frame trying to detect a code that can be
+- Using the asynchronous method `openCamera` which returns a Promise
+- First it'll open the device's camera
+- It'll go frame by frame trying to detect a code that can be
 scanned. It's recursive.
 
 Try to detect in each frame:
 
-* The method `detect` from the Barcode Detection API works with
+- The method `detect` from the Barcode Detection API works with
 images, not videos (which is why it's called frame by frame 
 recursively). 
-* If `detect` finds a code, call `service.closeScan`.
+- If `detect` finds a code, call `service.closeScan`.
 
 Get the code from `openCamera` and verify if it's a code that's 
 meaningful for the app:
 
-* Uses regex
-* If a match is found, launches a custom event with 
+- Uses regex
+- If a match is found, launches a custom event with 
 `service.sendEvent`
 
 ## Regular scanner
@@ -59,8 +59,8 @@ of 300ms finishes.
 
 Before being emptied, it's sent to a function `validateCode`:
 
-* Compares using regex to know if it a meaningful code for the app
-* Sends custom event if valid code
+- Compares using regex to know if it a meaningful code for the app
+- Sends custom event if valid code
 
 ## UI Service Listeners
 
